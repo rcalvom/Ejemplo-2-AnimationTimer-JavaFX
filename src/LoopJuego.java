@@ -60,6 +60,7 @@ public class LoopJuego extends AnimationTimer {
         for (int i = 1; i <= 5; i++) {
             gc.drawImage(imagen,365,250,32,32,32*7,32*i,32,32);
         }
+        
         gc.drawImage(imagen,289,118,32,32,32*7,32*6,32,32);
         gc.drawImage(imagen,364,2,32,64,32*6,32*6,32,64);
         gc.drawImage(imagen,325,2,32,64,32*7,32*7,32,64);
@@ -115,8 +116,11 @@ public class LoopJuego extends AnimationTimer {
         gc.drawImage(imagen,183,211,18,26,32*6+5,32*1+5,18,26);
         gc.drawImage(imagen,109,63,63,39,32*1+(64-39),32*4,63,39);
         gc.drawImage(imagen,212,184,28,20,32*5-15,32*6+5,28,20);
-        gc.drawImage(imagen,183,185,20,16,32*6-15,32*5+5,20,16);
-        
+        gc.drawImage(imagen,183,185,20,16,32*6+8,32*5+5,20,16);
+        //Objetos Sala
+        gc.drawImage(imagen,216,111,65,64,32*2,32*7,64,64);
+        gc.drawImage(imagen,58,130,66,34,30,32*10-2,66,34);
+        gc.drawImage(imagen,143,190,28,41,32*6+3,32*7+16,28,41);
         //Actualizar el contador de tiempo
         this.cont++;    
     }
