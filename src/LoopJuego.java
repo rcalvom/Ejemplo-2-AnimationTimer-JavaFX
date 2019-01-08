@@ -27,53 +27,79 @@ public class LoopJuego extends AnimationTimer {
         gc.drawImage(imagen,325,177,32,32,0,0,32,32);
         for (int i = 1; i <= 6; i++) {
             gc.drawImage(imagen,325,109,32,64,32*i,0,32,64);
+            colisiones.add(new Rectangle(32*i,0,32,64));
         }
         gc.drawImage(imagen,289,81,32,32,32*7,0,32,32);
+        colisiones.add(new Rectangle(32*7,0,32,32));
         for (int i = 8; i <= 11; i++) {
             gc.drawImage(imagen,325,109,32,64,32*i,0,32,64);
+            colisiones.add(new Rectangle(32*i,0,32,64));
         }
         gc.drawImage(imagen,365,176,32,32,32*12,0,32,32);
+        colisiones.add(new Rectangle(32*12,0,32,32));
         //Muro lateral izquierdo
         for (int i = 1; i <= 5; i++) {
             gc.drawImage(imagen,365,250,32,32,0,32*i,32,32);
+            colisiones.add(new Rectangle(0,32*i,32,32));
         }
         gc.drawImage(imagen,243,2,32,32,0,32*6,32,32);
+        colisiones.add(new Rectangle(0,32*6,32,32));
         for (int i = 7; i <= 10; i++) {
             gc.drawImage(imagen,365,250,32,32,0,32*i,32,32);
+            colisiones.add(new Rectangle(0,32*i,32,32));
         }
         gc.drawImage(imagen,325,215,32,32,0,32*11,32,32);
+        colisiones.add(new Rectangle(0,32*11,32,32));
         //Muro lateral derecho
         for (int i = 1; i <= 3; i++) {
             gc.drawImage(imagen,365,250,32,32,32*12,32*i,32,32);
+            colisiones.add(new Rectangle(32*12,32*i,32,32));
         }
         gc.drawImage(imagen,289,118,32,32,32*12,32*4,32,32);
+            colisiones.add(new Rectangle(32*12,32*4,32,32));
+            
         for (int i = 5; i <= 10; i++) {
             gc.drawImage(imagen,365,250,32,32,32*12,32*i,32,32);
+            colisiones.add(new Rectangle(32*12,32*i,32,32));
         }
-        gc.drawImage(imagen,365,214,32,32,32*12,32*11,32,32);
+            gc.drawImage(imagen,365,214,32,32,32*12,32*11,32,32);
+            colisiones.add(new Rectangle(32*12,32*11,32,32));
         //Muros inferiores
         for (int i = 1; i <= 2; i++) {
             gc.drawImage(imagen,326,250,32,32,32*i,32*11,32,32);
+            colisiones.add(new Rectangle(32*i,32*11,32,32));
         }
         gc.drawImage(imagen,289,2,32,32,32*3,32*11,32,32);
+        colisiones.add(new Rectangle(32*3,32*11,32,32));
+        
         gc.drawImage(imagen,289,44,32,32,32*6,32*11,32,32);
+        colisiones.add(new Rectangle(32*6,32*11,32,32));
+        
         gc.drawImage(imagen,325,74,32,32,32*7,32*11,32,32);
+        colisiones.add(new Rectangle(32*7,32*11,32,32));
         for (int i = 8; i <= 11; i++) {
             gc.drawImage(imagen,326,250,32,32,32*i,32*11,32,32);
+            colisiones.add(new Rectangle(32*i,32*11,32,32));
         }
         //Muro intermedio superior
         for (int i = 1; i <= 5; i++) {
             gc.drawImage(imagen,365,250,32,32,32*7,32*i,32,32);
+            colisiones.add(new Rectangle(32*7,32*i,32,32));
         }
         
         gc.drawImage(imagen,289,118,32,32,32*7,32*6,32,32);
+        colisiones.add(new Rectangle(32*7,32*6,32,32));
         gc.drawImage(imagen,364,2,32,64,32*6,32*6,32,64);
+        colisiones.add(new Rectangle(32*6,32*6,32,64));
         gc.drawImage(imagen,325,2,32,64,32*7,32*7,32,64);
+        colisiones.add(new Rectangle(32*7,32*7,32,64));
         //Muro intermedio izquierda
         for (int i = 1; i <= 2; i++) {
             gc.drawImage(imagen,325,109,32,64,32*i,32*6,32,64);
+            colisiones.add(new Rectangle(32*i,32*6,32,64));
         }
         gc.drawImage(imagen,365,73,32,64,32*3,32*6,32,64);
+        colisiones.add(new Rectangle(32*3,32*6,32,64));
         //Muro intermedio inferior
         gc.drawImage(imagen,365,141,32,32,32*7,32*10,32,32);
         //Muro intermedio derecha
