@@ -1,7 +1,10 @@
 
+import java.util.ArrayList;
 import javafx.animation.AnimationTimer;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.image.Image;
+import javafx.scene.shape.Rectangle;
+import javafx.scene.shape.Shape;
 
 
 /**
@@ -12,13 +15,15 @@ public class LoopJuego extends AnimationTimer {
     private final GraphicsContext gc;
     private final Image imagen;
     private long cont;
+    private ArrayList<Shape> colisiones;
    
     @Override
     public void handle(long l) {
-        
         //borrar y redibujar el fondo
         //Muro superior
+        
         gc.clearRect(0, 0, 416,384);
+        colisiones.add(new Rectangle(0,0,416,384));
         gc.drawImage(imagen,325,177,32,32,0,0,32,32);
         for (int i = 1; i <= 6; i++) {
             gc.drawImage(imagen,325,109,32,64,32*i,0,32,64);
