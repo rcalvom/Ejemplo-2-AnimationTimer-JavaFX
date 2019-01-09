@@ -102,10 +102,13 @@ public class LoopJuego extends AnimationTimer {
         colisiones.add(new Rectangle(32*3,32*6,32,64));
         //Muro intermedio inferior
         gc.drawImage(imagen,365,141,32,32,32*7,32*10,32,32);
+        colisiones.add(new Rectangle(32*7,32*10,32,32));
         //Muro intermedio derecha
         gc.drawImage(imagen,364,2,32,64,32*9,32*4,32,64);
+        colisiones.add(new Rectangle(32*9,32*4,32,64));
         for (int i = 10; i <= 11; i++) {
             gc.drawImage(imagen,325,109,32,64,32*i,32*4,32,64);
+            colisiones.add(new Rectangle(32*i,32*4,32,64));
         }
         //piso cocina
         for (int i = 1; i <= 6; i++) {
@@ -141,27 +144,46 @@ public class LoopJuego extends AnimationTimer {
         gc.drawImage(imagen,130,15,32,32,32*8,32*4,32,32);
         //Objetos Cocina
         gc.drawImage(imagen,13,113,31,51,32*1,32*1+(64-51),31,51);
+        colisiones.add(new Rectangle(32*1,32*1+(64-51),31,51));
         gc.drawImage(imagen,73,45,31,61,32*2,32*1+(64-61),31,61);
+        colisiones.add(new Rectangle(32*2,32*1+(64-61),31,61));
         gc.drawImage(imagen,176,60,31,44,32*3,32*1+(64-44),31,44);
+        colisiones.add(new Rectangle(32*3,32*1+(64-44),31,44));
         gc.drawImage(imagen,6,53,63,50,32*4,32*1+(64-50),63,50);
+        colisiones.add(new Rectangle(32*4,32*1+(64-50),63,50));
         gc.drawImage(imagen,183,211,18,26,32*6+5,32*1+5,18,26);
+        colisiones.add(new Rectangle(32*6+5,32*1+5,18,26));
         gc.drawImage(imagen,109,63,63,39,32*2,32*4-2,63,39);
+        colisiones.add(new Rectangle(32*2,32*4-2,63,39));
         gc.drawImage(imagen,212,184,28,20,32*5-15,32*6+5,28,20);
+        colisiones.add(new Rectangle(32*5-15,32*6+5,28,20));
         gc.drawImage(imagen,183,185,20,16,32*6+8,32*5+8,20,16);
+        colisiones.add(new Rectangle(32*6+8,32*5+8,20,16));
         //Objetos Sala
         gc.drawImage(imagen,216,111,65,64,32*2,32*7,64,64);
+        colisiones.add(new Rectangle(32*2,32*7,64,64));
         gc.drawImage(imagen,58,130,66,34,30,32*10-2,66,34);
+        colisiones.add(new Rectangle(30,32*10-2,66,34));
         gc.drawImage(imagen,143,190,28,41,32*6+3,32*7+16,28,41);
+        colisiones.add(new Rectangle(32*6+3,32*7+16,28,41));
         gc.drawImage(imagen,7,179,87,58,32*3+4,32*9+3,87,58);
+        colisiones.add(new Rectangle(32*3+4,32*9+3,87,58));
         //Objetos Habitación
         gc.drawImage(imagen,7,179,87,58,32*3+4,32*9+3,87,58);
+        colisiones.add(new Rectangle(32*3+4,32*9+3,87,58));
         gc.drawImage(imagen,251,187,65,90,32*10-1,32*5+3,65,90);
+        colisiones.add(new Rectangle(32*10-1,32*5+3,65,90));
         gc.drawImage(imagen,102,170,33,65,32*11-1,32*9,33,65);
+        colisiones.add(new Rectangle(32*11-1,32*9,33,65));
         //Objetos Baño
         gc.drawImage(imagen,38,6,33,46,32*8-1,34,33,46);
+        colisiones.add(new Rectangle(32*8-1,34,33,46));
         gc.drawImage(imagen,7,10,28,40,32*9+4,34+3,28,40);
+        colisiones.add(new Rectangle(32*9+4,34+3,28,40));
         gc.drawImage(imagen,80,6,17,24,32*11+6,34,17,24); 
-        gc.drawImage(imagen,106,9,13,9,32*11+18,32*3+19,13,9);      
+        colisiones.add(new Rectangle(32*11+6,34,17,24));
+        gc.drawImage(imagen,106,9,13,9,32*11+18,32*3+19,13,9);
+        colisiones.add(new Rectangle(32*11+18,32*3+19,13,9));
         //Actualizar el contador de tiempo
         this.cont++;    
     }
@@ -169,6 +191,7 @@ public class LoopJuego extends AnimationTimer {
     public LoopJuego(GraphicsContext gc) {
         this.gc = gc;
         this.imagen = new Image("Imagenes/silveira_neto_gpl_pixelart_tilese_version_2.png");
+        this.colisiones = new ArrayList<>();
   
     }   
 }
