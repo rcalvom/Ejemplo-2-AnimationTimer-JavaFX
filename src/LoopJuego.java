@@ -27,20 +27,24 @@ public class LoopJuego extends AnimationTimer {
    
     @Override
     public void handle(long l) {
-        
-        
-        /*if(this.cont==0){
-            /*for (int i = 1; i <= 6; i++) {
+        if(this.cont==0){
+            for (int i = 1; i <= 6; i++) {
                 colisiones.add(new Rectangle(32*i,0,32,64));
             }
             colisiones.add(new Rectangle(32*7,0,32,32));
             for (int i = 8; i <= 11; i++) {
                 colisiones.add(new Rectangle(32*i,0,32,64));
-            }*/
-            //colisiones.add(new Rectangle(32*12,0,32,32));
-            /*colisiones.add(new Rectangle(50,50,50,50));
-            gc.strokeRect(50,50,50,50);
-        }*/
+            }
+            colisiones.add(new Rectangle(32*12,0,32,32));
+            for (int i = 1; i <= 5; i++) {
+                colisiones.add(new Rectangle(0,32*i,32,32));
+            }
+            colisiones.add(new Rectangle(0,32*6,32,32));
+            for (int i = 7; i <= 10; i++) {
+                colisiones.add(new Rectangle(0,32*i,32,32));
+            }
+            colisiones.add(new Rectangle(0,32*11,32,32));
+        }
             
         //borrar y redibujar el fondo
         //Muro superior
@@ -55,20 +59,16 @@ public class LoopJuego extends AnimationTimer {
             gc.drawImage(imagen,325,109,32,64,32*i,0,32,64);
         }
         gc.drawImage(imagen,365,176,32,32,32*12,0,32,32);
-        //colisiones.add(new Rectangle(32*12,0,32,32));
+        
         //Muro lateral izquierdo
         for (int i = 1; i <= 5; i++) {
             gc.drawImage(imagen,365,250,32,32,0,32*i,32,32);
-            //colisiones.add(new Rectangle(0,32*i,32,32));
         }
         gc.drawImage(imagen,243,2,32,32,0,32*6,32,32);
-        //colisiones.add(new Rectangle(0,32*6,32,32));
         for (int i = 7; i <= 10; i++) {
             gc.drawImage(imagen,365,250,32,32,0,32*i,32,32);
-            //colisiones.add(new Rectangle(0,32*i,32,32));
         }
         gc.drawImage(imagen,325,215,32,32,0,32*11,32,32);
-        //colisiones.add(new Rectangle(0,32*11,32,32));
         //Muro lateral derecho
         for (int i = 1; i <= 3; i++) {
             gc.drawImage(imagen,365,250,32,32,32*12,32*i,32,32);
@@ -236,12 +236,12 @@ public class LoopJuego extends AnimationTimer {
         
         
         
-        /*for(Shape s : colisiones){
+        for(Shape s : colisiones){
             Shape interseccion = SVGPath.intersect(s,jugador.getShape());
             if (interseccion.getBoundsInLocal().getWidth()!=-1 && interseccion.getBoundsInLocal().getHeight()!=-1) {
                 System.out.println("Colision!");
             }
-        }*/
+        }
         
         
 
