@@ -22,7 +22,7 @@ public class Personaje {
         this.X = 4*32;
         this.Y = 9*32;
         this.contpasos = 0;
-        this.shape = new Rectangle(this.X,this.Y+38,30,2);
+        this.shape = new Rectangle(this.X,this.Y+27,30,13);
         this.paso = 1;
         this.pasoPrevio = 0;
         this.sentido = 2;
@@ -107,6 +107,7 @@ public class Personaje {
         }
         this.contpasos++;
         this.X--;
+        this.shape = new Rectangle(this.X,this.Y+27,30,13);
     }
     
     public void AvanzarDerecha(){
@@ -116,6 +117,7 @@ public class Personaje {
         }
         this.contpasos++;
         this.X++;
+        this.shape = new Rectangle(this.X,this.Y+27,30,13);
     }
     
     public void AvanzarArriba(){
@@ -125,6 +127,7 @@ public class Personaje {
         }
         this.contpasos++;
         this.Y--;
+        this.shape = new Rectangle(this.X,this.Y+27,30,13);
     }
     public void AvanzarAbajo(){
         this.setSentido(2);
@@ -133,6 +136,7 @@ public class Personaje {
         }
         this.contpasos++;
         this.Y++;
+        this.shape = new Rectangle(this.X,this.Y+27,30,13);
     }
     
     public void AvanzarPaso(){
@@ -150,7 +154,8 @@ public class Personaje {
                     this.paso=2;
                 }else{
                     this.paso=0;
-                }   break;
+                }   
+                break;
         }
         
     }
