@@ -16,13 +16,13 @@ public class Personaje {
     private int paso;
     private int pasoPrevio;
     private int sentido; //0 - arriba; 1 - derecha; 2 - abajo; 3 - Izquierda;
-    private int cont;
+    private int contpasos;
 
     public Personaje(){
         this.X = 4*32;
         this.Y = 9*32;
-        this.cont = 0;
-        this.shape = new Rectangle(this.X,this.Y,30,40);
+        this.contpasos = 0;
+        this.shape = new Rectangle(this.X,this.Y+38,30,2);
         this.paso = 1;
         this.pasoPrevio = 0;
         this.sentido = 2;
@@ -89,38 +89,50 @@ public class Personaje {
     public void setSentido(int sentido) {
         this.sentido = sentido;
     }
+
+    public int getContpasos() {
+        return contpasos;
+    }
+
+    public void setContpasos(int contpasos) {
+        this.contpasos = contpasos;
+    }
     
     public void AvanzarIzquierda(){
         this.setSentido(3);
         if(paso==2){
             this.setPaso(0);
-        }else if(this.cont%10==0){
+        }else if(this.contpasos%10==0){
             AvanzarPaso();
         }
-        this.cont++;
+        this.contpasos++;
+        this.X--;
     }
     
     public void AvanzarDerecha(){
         this.setSentido(1);
-       if(this.cont%10==0){
+       if(this.contpasos%10==0){
             AvanzarPaso();
         }
-        this.cont++;
+        this.contpasos++;
+        this.X++;
     }
     
     public void AvanzarArriba(){
         this.setSentido(0);
-        if(this.cont%10==0){
+        if(this.contpasos%10==0){
             AvanzarPaso();
         }
-        this.cont++;
+        this.contpasos++;
+        this.Y--;
     }
     public void AvanzarAbajo(){
         this.setSentido(2);
-        if(this.cont%10==0){
+        if(this.contpasos%10==0){
             AvanzarPaso();
         }
-        this.cont++;
+        this.contpasos++;
+        this.Y++;
     }
     
     public void AvanzarPaso(){
@@ -140,6 +152,7 @@ public class Personaje {
                     this.paso=0;
                 }   break;
         }
+        
     }
     
 }
