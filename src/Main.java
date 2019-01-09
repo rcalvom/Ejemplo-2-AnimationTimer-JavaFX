@@ -11,6 +11,7 @@ import javafx.stage.Stage;
 /**
  *
  * @author Ricardo Andrés Calvo
+ * @author Diego Felipe López
  */
 public class Main extends Application{ 
     @Override
@@ -20,7 +21,7 @@ public class Main extends Application{
         panel.getChildren().add(canvas);
         Scene scene = new Scene(panel,416,384,Color.WHITESMOKE);
         GraphicsContext gc = canvas.getGraphicsContext2D();
-        LoopJuego loop = new LoopJuego(gc);
+        LoopJuego loop = new LoopJuego(scene,gc);
         loop.start();
         stage.setTitle("Casa");
         stage.setScene(scene);

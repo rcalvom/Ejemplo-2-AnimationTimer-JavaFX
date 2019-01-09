@@ -1,29 +1,38 @@
 
 import java.util.ArrayList;
 import javafx.animation.AnimationTimer;
+import javafx.event.EventHandler;
+import javafx.scene.Scene;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.image.Image;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.shape.Rectangle;
+import javafx.scene.shape.SVGPath;
 import javafx.scene.shape.Shape;
 
 
 /**
  *
  * @author Ricardo Andrés Calvo
+ * @author Diego Felipe López
  */
 public class LoopJuego extends AnimationTimer {
     private final GraphicsContext gc;
     private final Image imagen;
     private long cont;
     private ArrayList<Shape> colisiones;
+    private ArrayList<String> pulsacionTeclado;
+    private Scene escena;
+    private Personaje jugador;
    
     @Override
     public void handle(long l) {
         //borrar y redibujar el fondo
         //Muro superior
         
-        gc.clearRect(0, 0, 416,384);
-        colisiones.add(new Rectangle(0,0,416,384));
+        
+        
+        gc.clearRect(0, 0, 416,384);     
         gc.drawImage(imagen,325,177,32,32,0,0,32,32);
         for (int i = 1; i <= 6; i++) {
             gc.drawImage(imagen,325,109,32,64,32*i,0,32,64);
@@ -184,14 +193,62 @@ public class LoopJuego extends AnimationTimer {
         colisiones.add(new Rectangle(32*11+6,34,17,24));
         gc.drawImage(imagen,106,9,13,9,32*11+18,32*3+19,13,9);
         colisiones.add(new Rectangle(32*11+18,32*3+19,13,9));
+        
+        gc.drawImage(jugador.getImage()[jugador.getSentido()][jugador.getPaso()], jugador.getX(), jugador.getY(),30,40);
+        
+        
+        
+        if(pulsacionTeclado.contains("LEFT")){
+            jugador.AvanzarIzquierda();
+        }else if(pulsacionTeclado.contains("RIGHT")){
+            jugador.AvanzarDerecha();
+        }else if(pulsacionTeclado.contains("UP")){
+            jugador.AvanzarArriba();
+        }else if(pulsacionTeclado.contains("DOWN")){
+            jugador.AvanzarAbajo();
+        }
+        
+        /*for(Shape s : colisiones){
+            Shape interseccion = SVGPath.intersect(s,jugador.getShape());
+            if (interseccion.getBoundsInLocal().getWidth()!=0.01 && interseccion.getBoundsInLocal().getHeight()!=0.01) {
+                System.out.println("Colision!");
+            }
+        }*/
+        
+        
+
         //Actualizar el contador de tiempo
         this.cont++;    
     }
     
-    public LoopJuego(GraphicsContext gc) {
+    public LoopJuego(Scene escena,GraphicsContext gc) {
         this.gc = gc;
         this.imagen = new Image("Imagenes/silveira_neto_gpl_pixelart_tilese_version_2.png");
         this.colisiones = new ArrayList<>();
+        pulsacionTeclado = new ArrayList<>();
+        this.escena = escena;
+        this.jugador = new Personaje();
   
+        escena.setOnKeyPressed(
+            new EventHandler<KeyEvent>()
+            {
+                public void handle(KeyEvent e)
+                {
+                    String code = e.getCode().toString();
+                    if ( !pulsacionTeclado.contains(code) )
+                        pulsacionTeclado.add( code );
+                }
+            });
+
+        escena.setOnKeyReleased(
+            new EventHandler<KeyEvent>()
+            {
+                public void handle(KeyEvent e)
+                {
+                    String code = e.getCode().toString();
+                    pulsacionTeclado.remove( code );
+                }
+            });
+        
     }   
 }
