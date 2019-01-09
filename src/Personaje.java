@@ -14,6 +14,7 @@ public class Personaje {
     private Image[][] image;
     private Shape shape;
     private int paso;
+    private int pasoPrevio;
     private int sentido; //0 - arriba; 1 - derecha; 2 - abajo; 3 - Izquierda;
     private int cont;
 
@@ -23,6 +24,7 @@ public class Personaje {
         this.cont = 0;
         this.shape = new Rectangle(this.X,this.Y,30,40);
         this.paso = 1;
+        this.pasoPrevio = 0;
         this.sentido = 2;
         this.image = new Image[4][3];
         this.image[0][0] = new Image("Imagenes/up0.png");
@@ -93,39 +95,51 @@ public class Personaje {
         if(paso==2){
             this.setPaso(0);
         }else if(this.cont%10==0){
-            this.paso++;
+            AvanzarPaso();
         }
         this.cont++;
     }
     
     public void AvanzarDerecha(){
         this.setSentido(1);
-        if(paso==2){
-            this.setPaso(0);
-        }else if(this.cont%10==0){
-            this.paso++;
+       if(this.cont%10==0){
+            AvanzarPaso();
         }
         this.cont++;
     }
     
     public void AvanzarArriba(){
         this.setSentido(0);
-        if(paso==2){
-            this.setPaso(0);
-        }else if(this.cont%10==0){
-            this.paso++;
+        if(this.cont%10==0){
+            AvanzarPaso();
         }
         this.cont++;
     }
     public void AvanzarAbajo(){
         this.setSentido(2);
-        if(paso==2){
-            this.setPaso(0);
-        }else if(this.cont%10==0){
-            this.paso++;
+        if(this.cont%10==0){
+            AvanzarPaso();
         }
         this.cont++;
     }
     
+    public void AvanzarPaso(){
+        switch (this.paso) {
+            case 0:
+                this.paso=1;
+                this.pasoPrevio=0;
+                break;
+            case 2:
+                this.paso=1;
+                this.pasoPrevio=2;
+                break;
+            default:
+                if(this.pasoPrevio==0){
+                    this.paso=2;
+                }else{
+                    this.paso=0;
+                }   break;
+        }
+    }
     
 }
