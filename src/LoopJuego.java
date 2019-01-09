@@ -239,7 +239,8 @@ public class LoopJuego extends AnimationTimer {
         for(Shape s : colisiones){
             Shape interseccion = SVGPath.intersect(s,jugador.getShape());
             if (interseccion.getBoundsInLocal().getWidth()!=-1 && interseccion.getBoundsInLocal().getHeight()!=-1) {
-                System.out.println("Colision!");
+                //System.out.println("Colision!");
+                stop();
             }
         }
         
